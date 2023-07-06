@@ -25,8 +25,8 @@ vim.opt.incsearch = true
 -- look better
 vim.opt.guicursor = ""
 vim.opt.termguicolors = true
+vim.opt.signcolumn = "yes"
 vim.opt.colorcolumn = "100"
-vim.opt.scrolloff = 8
 vim.opt.laststatus = 2
 vim.opt.cmdheight = 2
 
@@ -40,5 +40,6 @@ vim.opt.splitright = true
 -- misc
 vim.opt.swapfile = false
 vim.opt.backup = false
+vim.opt.scrolloff = 8
 vim.opt.updatetime= 50
 vim.opt.errorbells = false

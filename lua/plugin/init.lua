@@ -32,7 +32,7 @@ return require("packer").startup(function(use)
     use { 
         "nvim-tree/nvim-tree.lua",
         config = function() 
-            require("plugin.nvim-tree")
+            require("plugin.config.nvimtree")
         end,
         requires = { "nvim-tree/nvim-web-devicons" }, -- for icons
     }
@@ -41,7 +41,7 @@ return require("packer").startup(function(use)
     use ({
         "nvim-lualine/lualine.nvim",
         config = function() 
-            require("plugin.lualine")
+            require("plugin.config.lualine")
         end, 
         requires = { "nvim-tree/nvim-web-devicons" }, -- for icons
     })
@@ -51,18 +51,27 @@ return require("packer").startup(function(use)
         "nvim-telescope/telescope.nvim",
         tag = '0.1.2',
         config = function()
-            require("plugin.telescope")
+            require("plugin.config.telescope")
         end,
-        requires = { "nvim-lua/plenary.nvim" }
+        requires = { "nvim-lua/plenary.nvim" },
     })
 
     -- beter syntax-highlighting w/ treesitter
     use ({
         "nvim-treesitter/nvim-treesitter", 
         config = function()
-            require("plugin.treesitter")
+            require("plugin.config.treesitter")
         end,
         run = ":TSUpdate",
+    })
+
+    -- persistant terminals in nvim
+    use ({
+        "akinsho/toggleterm.nvim",
+        tag = '*',
+        config = function()
+            require("plugin.config.toggleterm")
+        end,
     })
 
     if packer_bootstrap then
