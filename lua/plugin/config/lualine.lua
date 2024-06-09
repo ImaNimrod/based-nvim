@@ -6,5 +6,5 @@ if not status then
 end
 
 lualine.setup({
-    options = { theme = "aurora" },
+    options = { theme = "oxocarbon" },
 })
