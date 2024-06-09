@@ -16,15 +16,14 @@ return require("packer").startup(function(use)
 
     -- colorscheme
     use ({
-        "ray-x/aurora",
+        "nyoom-engineering/oxocarbon.nvim",
         config = function()
-            vim.cmd.colorscheme("aurora")
+            vim.opt.background = "dark"
+            vim.cmd.colorscheme("oxocarbon")
 
             -- transparent background
-            vim.api.nvim_set_hl(0, "Normal", { bg = "none", ctermbg = "none" })
-            vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none", ctermbg = "none" })
-            vim.api.nvim_set_hl(0, "NormalNC", { bg = "none", ctermbg = "none" })
-            vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none", ctermbg = "none" })
+            vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+            vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
         end,
     })
 
@@ -73,6 +72,9 @@ return require("packer").startup(function(use)
             require("plugin.config.toggleterm")
         end,
     })
+
+    -- multiple cursors
+    use "mg979/vim-visual-multi"
 
     if packer_bootstrap then
         require("packer").sync()
