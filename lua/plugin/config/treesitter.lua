@@ -5,7 +5,7 @@ if not status then
     return
 end
 
-configs.setup {
+configs.setup({
     ensure_installed = { "c", "java", "typescript", "lua", "vim", "vimdoc", "query" },
 
     sync_install = false,
@@ -15,4 +15,4 @@ configs.setup {
         enable = true,
         additional_vim_regex_highlighting = false,
     },
-}
+})
