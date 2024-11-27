@@ -29,17 +29,24 @@ vim.opt.signcolumn = "yes"
 vim.opt.colorcolumn = "100"
 vim.opt.laststatus = 2
 vim.opt.cmdheight = 2
+vim.opt.pumheight = 10,
 
 -- disable messages and nvim startup screen
 vim.opt.shortmess:append "sIc"
+-- hyphenated words recognized by searches
+vim.opt.iskeyword:append "-"
 
 -- split defaults
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
 -- misc
+vim.opt.fileencoding = "utf-8"
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.scrolloff = 8
-vim.opt.updatetime= 50
+vim.opt.sidescrolloff = 8
+vim.opt.showmode = false
+vim.opt.updatetime = 300
 vim.opt.errorbells = false
+vim.opt.whichwrap = "bs<>[]hl"

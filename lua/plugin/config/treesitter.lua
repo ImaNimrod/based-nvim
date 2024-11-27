@@ -6,13 +6,22 @@ if not status then
 end
 
 configs.setup({
-    ensure_installed = { "c", "java", "typescript", "lua", "vim", "vimdoc", "query" },
-
+    ensure_installed = { "c", "java", "typescript", "lua", "vim", "vimdoc", "query", },
+    ignore_install = { "sql", "ignore", },
     sync_install = false,
-    auto_install = true,
-
+    autopairs = {
+        enable = true,
+    },
+    context_commentstring = {
+        enable = true,
+        enable_autocmd = false,
+    },
     highlight = {
         enable = true,
         additional_vim_regex_highlighting = false,
+    },
+    indent = {
+        enable = true,
+        disable = { "python", "css" }
     },
 })

@@ -20,4 +20,8 @@ tree.setup({
         enable = false,
         ignore = true,
     },
+    update_focused_file = {
+        enable = true,
+        update_cwd = true,
+    },
 })
