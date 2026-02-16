@@ -32,7 +32,6 @@ vim.opt.swapfile = false
 
 vim.opt.updatetime= 100
 vim.opt.backspace = "indent,eol,start"
-vim.opt.iskeyword:append("-")
 vim.opt.errorbells = false
 vim.opt.modifiable = true
 vim.opt.encoding = "utf-8"
@@ -101,7 +100,9 @@ require("telescope").setup({
     },
 })
 
-require("toggleterm").setup()
+require("toggleterm").setup({
+    open_mapping = [[<c-\>]],
+})
 
 -- keybinds
 vim.g.mapleader = " "
@@ -158,6 +159,3 @@ vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>")
 -- telescope
 vim.keymap.set("n", "<leader>ff", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<CR>")
 vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<CR>")
-
--- toggleterm
-vim.keymap.set({ "n", "t" }, "<leader>tt", "<cmd>ToggleTerm<CR>")
