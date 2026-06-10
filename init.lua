@@ -54,6 +54,8 @@ vim.pack.add({
     { src = "https://github.com/akinsho/toggleterm.nvim" },
     -- multiple cursors emacs meme
     { src = "https://github.com/jake-stewart/multicursor.nvim" },
+    -- treeshitter
+    { src = "https://github.com/nvim-treesitter/nvim-treesitter.git" },
     -- colorscheme
     { src = "https://github.com/ray-x/aurora.git" },
 })
@@ -91,6 +93,8 @@ require("nvim-tree").setup({
         update_cwd = true,
     },
 })
+
+require('nvim-treesitter').install { 'c', 'rust', 'lua' }
 
 require("telescope").setup({
     defaults = {
@@ -159,3 +163,11 @@ vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>")
 -- telescope
 vim.keymap.set("n", "<leader>ff", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<CR>")
 vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<CR>")
+
+-- treeshitter auto highlighting and auto indenting
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = { 'c', 'lua' },
+    callback = function() vim.treesitter.start() end,
+})
+
+vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
